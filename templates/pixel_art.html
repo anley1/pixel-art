@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pixel Art</title>
+    <style>
+        .pixel {
+            width: 10px;
+            height: 10px;
+            float: left;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tailwind.css') }}">
+</head>
+<body>
+    <div className="bg-black min-h-screen flex flex-col justify-center items-center text-white overflow-hidden">
+        {% for pixel in pixels %}
+            <div class="pixel" style="background-color: rgb({{ pixel[0] }}, {{ pixel[1] }}, {{ pixel[2] }});"></div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
